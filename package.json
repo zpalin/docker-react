@@ -11,6 +11,8 @@
     "react-scripts": "3.3.0"
   },
   "scripts": {
+    "build:docker": "docker build . -t zpalin/cra-web-test:latest",
+    "start:docker": "docker run -p 8080:80 zpalin/cra-web-test",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t zpalin/cra-web-test -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true zpalin/cra-web-test npm run test
