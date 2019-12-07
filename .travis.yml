@@ -7,3 +7,16 @@ before_install:
 
 script:
   - docker run -e CI=true zpalin/cra-web-test npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-west-1"
+  app: "cra-web-test"
+  env: "CraWebTest-env"
+  bucket_name: "elasticbeanstalk-us-west-1-275190232342"
+  bucket_path: "cra-web-test"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
